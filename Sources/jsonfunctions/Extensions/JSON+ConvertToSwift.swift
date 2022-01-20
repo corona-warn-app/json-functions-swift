@@ -47,7 +47,7 @@ extension JSON {
         let convertedToSwiftStandardType = try convertToSwiftTypes(dateToString: true)
 
         let jsonData: Data
-        if #available(iOS 13.0, *) {
+        if #available(iOS 13.0, macOS 10.15, *) {
             jsonData = try JSONSerialization.data(withJSONObject: convertedToSwiftStandardType as Any, options: [.fragmentsAllowed, .sortedKeys, .withoutEscapingSlashes])
         } else {
             jsonData = try JSONSerialization.data(withJSONObject: convertedToSwiftStandardType as Any, options: [.fragmentsAllowed, .sortedKeys])
