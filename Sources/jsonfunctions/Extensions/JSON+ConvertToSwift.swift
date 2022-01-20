@@ -7,7 +7,7 @@ import JSON
 
 extension JSON {
 
-    func convertToSwiftTypes() throws -> Any? {
+    func convertToSwiftTypes(dateToString: Bool = false) throws -> Any? {
         switch self {
         case .Error:
             throw JsonFunctionsError.canNotParseJSONData("\(self)")
@@ -21,13 +21,17 @@ extension JSON {
             return self.double
         case .String:
             return self.string
-        case .Date:
-            return self.date
+        case let .Date(date):
+            if dateToString {
+                return date.fullFormatted
+            } else {
+                return date
+            }
         case let .Array(array):
-            return try array.map { try $0.convertToSwiftTypes() }
+            return try array.map { try $0.convertToSwiftTypes(dateToString: dateToString) }
         case let .Dictionary(dict):
             return try dict.mapValues {
-                try $0.convertToSwiftTypes()
+                try $0.convertToSwiftTypes(dateToString: dateToString)
             }
         }
     }
@@ -37,6 +41,18 @@ extension JSON {
 
         let jsonData = try JSONSerialization.data(withJSONObject: convertedToSwiftStandardType as Any, options: [.fragmentsAllowed])
         return try JSONDecoder().decode(T.self, from: jsonData)
+    }
+
+    func jsonString() throws -> String? {
+        let convertedToSwiftStandardType = try convertToSwiftTypes(dateToString: true)
+
+        let jsonData: Data
+        if #available(iOS 13.0, *) {
+            jsonData = try JSONSerialization.data(withJSONObject: convertedToSwiftStandardType as Any, options: [.fragmentsAllowed, .sortedKeys, .withoutEscapingSlashes])
+        } else {
+            jsonData = try JSONSerialization.data(withJSONObject: convertedToSwiftStandardType as Any, options: [.fragmentsAllowed, .sortedKeys])
+        }
+        return Swift.String(data: jsonData, encoding: .utf8)
     }
 
 }
