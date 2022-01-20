@@ -9,18 +9,18 @@ extension JSON {
 
     func convertToSwiftTypes(dateToString: Bool = false) throws -> Any? {
         switch self {
-        case .Error:
-            throw JsonFunctionsError.canNotParseJSONData("\(self)")
+        case let .Error(error):
+            throw JsonFunctionsError.canNotParseJSONData("\(error)")
         case .Null:
             return Optional<Any>.none
-        case .Bool:
-            return self.bool
-        case .Int:
-            return Swift.Int(self.int!)
-        case .Double:
-            return self.double
-        case .String:
-            return self.string
+        case let .Bool(bool):
+            return bool
+        case let .Int(int):
+            return Swift.Int(int)
+        case let .Double(double):
+            return double
+        case let .String(string):
+            return string
         case let .Date(date):
             if dateToString {
                 return date.fullFormatted
