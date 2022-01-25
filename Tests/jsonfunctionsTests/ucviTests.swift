@@ -7,7 +7,6 @@
 
 import XCTest
 @testable import jsonfunctions
-import JSON
 
 class ucviTests: XCTestCase {
   

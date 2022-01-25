@@ -6,7 +6,6 @@
 //
 
 import XCTest
-import JSON
 @testable import jsonfunctions
 
 class AndTests: XCTestCase {

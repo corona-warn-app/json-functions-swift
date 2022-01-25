@@ -7,7 +7,7 @@
 
 import Foundation
 import XCTest
-@testable import JSON
+@testable import jsonfunctions
 
 class JSONTests: XCTestCase {
 
