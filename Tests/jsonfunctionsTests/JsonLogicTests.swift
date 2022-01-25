@@ -1,5 +1,4 @@
 import XCTest
-import JSON
 @testable import jsonfunctions
 
 final class LegacyJsonFunctionsTests: XCTestCase {

@@ -3,7 +3,6 @@
 //
 
 import Foundation
-import JSON
 
 public let optionalPrefix = "URN:UVCI:"
 

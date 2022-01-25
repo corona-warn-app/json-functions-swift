@@ -7,7 +7,6 @@
 
 import XCTest
 @testable import jsonfunctions
-import JSON
 
 private class CustomOperatorWrapper {
     var isCustomOperatorCalled = false

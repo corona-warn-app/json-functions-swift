@@ -3,7 +3,6 @@
 //
 
 import Foundation
-import JSON
 
 ///  Errors that can be thrown from JsonFunctions methods
 public enum JsonFunctionsError: Error, Equatable {
