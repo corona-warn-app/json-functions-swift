@@ -32,7 +32,7 @@ final class JsonFunctionsTests: XCTestCase {
                         print("*** ✅ test case \(index) equals expected value - \(testCase.title)")
                         passed += 1
                     } else {
-                        print("*** ❌ test case \(index) \"\(result)\" does not equal expected value \"\(String(describing: testCase.exp?.value))\" - \(testCase.title)")
+                        print("*** ❌ test case \(index) \"\(try result.jsonString() ?? "")\" does not equal expected value \"\(try exp.jsonString() ?? "")\" - \(testCase.title)")
                         failed += 1
                     }
                 } else {
@@ -45,7 +45,7 @@ final class JsonFunctionsTests: XCTestCase {
                         print("*** ✅ test case \(index) equals expected value - \(testCase.title)")
                         passed += 1
                     } else {
-                        print("*** ❌ test case \(index) \"\(result)\" does not equal expected value \"\(String(describing: testCase.exp?.value))\" - \(testCase.title)")
+                        print("*** ❌ test case \(index) \"\(try result.jsonString() ?? "")\" does not equal expected value \"\(try exp.jsonString() ?? "")\" - \(testCase.title)")
                         failed += 1
                     }
                 }

@@ -9,6 +9,8 @@ struct Evaluate: Expression {
 
     let expression: Expression
 
+    let registeredFunctions: [String: JsonFunctionDefinition]
+
     func eval(with data: inout JSON) throws -> JSON {
         guard let arrayExpression = expression as? ArrayOfExpressions,
               let expressionExpression = arrayExpression.expressions[safe: 0],
@@ -18,7 +20,10 @@ struct Evaluate: Expression {
         }
 
         let expressionResult = try expressionExpression.eval(with: &data)
-        let expression = try Parser(json: expressionResult).parse()
+        let expression = try Parser(
+            json: expressionResult,
+            registeredFunctions: registeredFunctions
+        ).parse()
 
         let parametersResult = try parametersExpression.eval(with: &data)
 
