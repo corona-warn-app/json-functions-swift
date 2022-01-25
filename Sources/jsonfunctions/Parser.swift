@@ -14,7 +14,7 @@ class Parser {
     init(
         json: JSON,
         customOperators: [String: (JSON?) -> JSON]? = nil,
-        registeredFunctions: [String: JsonFunctionDefinition] = [:]
+        registeredFunctions: [String: JsonFunctionDefinition]
     ) {
         self.json = json
         self.customOperators = customOperators ?? [:]
@@ -205,7 +205,10 @@ class Parser {
         case "declare":
             return Declare(expression: try self.parse(json: value))
         case "evaluate":
-            return Evaluate(expression: try self.parse(json: value))
+            return Evaluate(
+                expression: try self.parse(json: value),
+                registeredFunctions: registeredFunctions
+            )
         case "return":
             return Return(expression: try self.parse(json: value))
         case "init":
