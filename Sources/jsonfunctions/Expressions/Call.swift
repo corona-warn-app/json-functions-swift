@@ -23,7 +23,7 @@ struct Call: Expression {
         }
 
         guard let functionDefinition = registeredFunctions[functionName] else {
-            throw ParseError.InvalidParameters("Call: No such function")
+            throw ParseError.InvalidParameters("Call: No such function \"\(functionName)\"")
         }
 
         let parametersDictionary: [String: JSON]
@@ -56,7 +56,7 @@ struct Call: Expression {
             throw ParseError.InvalidParameters("Logic in function definition must be array")
         }
 
-        if let arrayOfExpressions = try Parser(json: JSON(logicArray)).parse() as? ArrayOfExpressions {
+        if let arrayOfExpressions = try Parser(json: JSON(logicArray), registeredFunctions: registeredFunctions).parse() as? ArrayOfExpressions {
             return try Script(expression: arrayOfExpressions).eval(with: JSON(data))
         } else {
             throw ParseError.InvalidParameters("Call: Function definition logic must be array")
