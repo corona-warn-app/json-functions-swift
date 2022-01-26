@@ -21,6 +21,5 @@ Pod::Spec.new do |s|
   
   s.source_files = 'Sources/jsonfunctions/*.swift'
   s.module_name = 'jsonfunctions'
-  s.dependency 'json-enum', '~> 1.1' 
-
+  s.dependency 'AnyCodable-FlightSchool', '~> 0.6'
 end
