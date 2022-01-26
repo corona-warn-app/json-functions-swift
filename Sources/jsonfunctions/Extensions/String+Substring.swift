@@ -1,8 +1,15 @@
 //
-//  String+Substring.swift
-//  
+// json-functions-swift
+//
+// Copied from: https://github.com/eu-digital-green-certificates/json-logic-swift/blob/master/Sources/jsonlogic/String%2B.swift
+// in forked Repository:
+// https://github.com/eu-digital-green-certificates/json-logic-swift
+//
+//  File.swift
 //
 //  Created by Alexandr Chernyy on 03.08.2021.
+//
+// Modifications Copyright (c) 2022 SAP SE or an SAP affiliate company
 //
 
 import Foundation

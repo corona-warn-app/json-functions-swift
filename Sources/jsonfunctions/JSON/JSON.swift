@@ -1,5 +1,11 @@
 //
-// json-functions-swift
+//  JSON.swift
+//  JSON
+//
+//  Created by Christos Koninis on 09/03/2019.
+//  Licensed under MIT
+//
+//  Modifications Copyright (c) 2022 SAP SE or an SAP affiliate company.
 //
 
 import Foundation

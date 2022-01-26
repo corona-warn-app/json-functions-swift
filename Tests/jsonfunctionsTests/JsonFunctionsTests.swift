@@ -1,3 +1,9 @@
+//
+// jsonfunctionsTests
+//
+// Copyright (c) 2022 SAP SE or an SAP affiliate company
+//
+
 import XCTest
 @testable import jsonfunctions
 

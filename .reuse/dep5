@@ -1,0 +1,52 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: json-functions-swift
+Upstream-Contact: The Corona Warn App Team <corona-warn-app.opensource@sap.com>
+Source: https://github.com/corona-warn-app/json-functions-swift
+
+Files: **
+Copyright: 2019 Advantage FSE
+License: MIT
+
+Files: Sources/jsonfunctions/JSON/Date.swift
+Copyright: 2021 Patrick Amrein <amrein@ubique.ch>
+License: MIT
+
+Files: Sources/jsonfunctions/Expressions/_Expression.swift
+       Sources/jsonfunctions/Expressions/ArrayCount.swift
+       Sources/jsonfunctions/Expressions/ArrayFind.swift
+       Sources/jsonfunctions/Expressions/ArrayPush.swift
+       Sources/jsonfunctions/Expressions/ArraySort.swift
+       Sources/jsonfunctions/Expressions/Assign.swift
+       Sources/jsonfunctions/Expressions/Call.swift
+       Sources/jsonfunctions/Expressions/Concatenate.swift
+       Sources/jsonfunctions/Expressions/Declare.swift
+       Sources/jsonfunctions/Expressions/Evaluate.swift
+       Sources/jsonfunctions/Expressions/Init.swift
+       Sources/jsonfunctions/Expressions/ReplaceAll.swift
+       Sources/jsonfunctions/Expressions/Return.swift
+       Sources/jsonfunctions/Expressions/Script.swift
+       Sources/jsonfunctions/Expressions/Split.swift
+       Sources/jsonfunctions/Expressions/Spread.swift
+       Sources/jsonfunctions/Expressions/ToLowerCase.swift
+       Sources/jsonfunctions/Expressions/ToUpperCase.swift
+       Sources/jsonfunctions/Expressions/Trim.swift
+       Sources/jsonfunctions/Expressions/DiffTime.swift
+Copyright: 2022 SAP SE or an SAP affiliate company and json-functions-swift contributors
+License: MIT
+
+Files: Sources/jsonfunctions/Extensions/Array+SafeAccess.swift
+       Sources/jsonfunctions/Extensions/Calendar+UTC.swift
+       Sources/jsonfunctions/Extensions/Date+AddTime.swift
+       Sources/jsonfunctions/Extensions/Date+DiffTime.swift
+       Sources/jsonfunctions/Extensions/JSON+InnerDescription.swift
+Copyright: 2022 SAP SE or an SAP affiliate company and json-functions-swift contributors
+License: MIT
+
+Files: Sources/jsonfunctions/JsonFunctionsModels.swift
+Copyright: 2022 SAP SE or an SAP affiliate company and json-functions-swift contributors
+License: MIT
+
+Files: Tests/jsonfunctionsTests/JsonFunctionsTestCases.swift
+       Tests/jsonfunctionsTests/JsonFunctionsTests.swift
+Copyright: 2022 SAP SE or an SAP affiliate company and json-functions-swift contributors
+License: MIT

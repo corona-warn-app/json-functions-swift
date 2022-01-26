@@ -1,8 +1,12 @@
 //
-//  Arithmetic.swift
 //  jsonfunctionsTests
 //
-//  Created by Christos Koninis on 11/02/2019.
+//      Arithmetic.swift
+//      jsonfunctionsTests
+//
+//      Created by Christos Koninis on 11/02/2019.
+//
+// Modifications Copyright (c) 2022 SAP SE or an SAP affiliate company
 //
 
 import XCTest

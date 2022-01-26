@@ -1,8 +1,12 @@
 //
-//  File.swift
-//  
+//  jsonfunctionsTests
 //
-//  Created by Alexandr Chernyy on 03.08.2021.
+//      File.swift
+//
+//
+//      Created by Alexandr Chernyy on 03.08.2021.
+//
+// Modifications Copyright (c) 2022 SAP SE or an SAP affiliate company
 //
 
 import XCTest

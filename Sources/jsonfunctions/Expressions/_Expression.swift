@@ -1,6 +1,8 @@
 //
 // json-functions-swift
 //
+// Copyright (c) 2022 SAP SE or an SAP affiliate company
+//
 
 import Foundation
 

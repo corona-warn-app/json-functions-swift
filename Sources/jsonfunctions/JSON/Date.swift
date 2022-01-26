@@ -1,7 +1,5 @@
 // Copyright (c) 2021 Patrick Amrein <amrein@ubique.ch>
-// 
-// Licensed under LGPL
-
+//
 
 import Foundation
 
