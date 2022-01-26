@@ -50,3 +50,8 @@ Files: Tests/jsonfunctionsTests/JsonFunctionsTestCases.swift
        Tests/jsonfunctionsTests/JsonFunctionsTests.swift
 Copyright: 2022 SAP SE or an SAP affiliate company and json-functions-swift contributors
 License: MIT
+
+Files: .github/workflows/ci-pull-request.yml
+       .pipeline/Jekinsfile
+Copyright: 2022 SAP SE or an SAP affiliate company and json-functions-swift contributors
+License: MIT
