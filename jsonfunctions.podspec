@@ -18,8 +18,7 @@ Pod::Spec.new do |s|
   s.cocoapods_version = '>= 1.6.1'
   
   s.frameworks = 'Foundation'
-  
-  s.source_files = 'Sources/jsonfunctions/*.swift'
+  s.source_files = 'Sources/jsonfunctions/**/*.swift'
   s.module_name = 'jsonfunctions'
   s.dependency 'AnyCodable-FlightSchool', '~> 0.6'
 end
