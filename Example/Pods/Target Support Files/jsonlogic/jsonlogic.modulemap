@@ -1,6 +1,0 @@
-framework module jsonfunctions {
-  umbrella header "jsonfunctions-umbrella.h"
-
-  export *
-  module * { export * }
-}
