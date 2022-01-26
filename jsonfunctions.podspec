@@ -16,7 +16,6 @@ Pod::Spec.new do |s|
   s.swift_versions = ['5.3.2']
   
   s.cocoapods_version = '>= 1.6.1'
-#  s.swift_version = '4.2.1'
   
   s.frameworks = 'Foundation'
   
