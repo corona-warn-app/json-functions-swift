@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "jsonfunctions",
     platforms: [
-        .macOS(.v10_13), .iOS(.v11), .tvOS(.v9), .watchOS(.v2)
+        .macOS(.v10_13), .iOS(.v11), .tvOS(.v13), .watchOS(.v6)
     ],
     products: [
         .library(
