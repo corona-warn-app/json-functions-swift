@@ -1,9 +1,8 @@
-platform :ios, '8.0'
+platform :ios, '11.0'
 
-target 'jsonfunctionsExample' do
+target 'jsonlogicExample' do
 use_frameworks!
 
 pod 'jsonfunctions', :path => '../'
-pod 'json-enum', :path => '../'
 
 end
