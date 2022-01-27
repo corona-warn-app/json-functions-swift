@@ -5,23 +5,23 @@
 import Foundation
 import AnyCodable
 
-public struct JsonFunctionDescriptor: Decodable {
+public struct JsonFunctionDescriptor: Codable {
 
     let name: String
     let definition: JsonFunctionDefinition
 
 }
 
-public struct JsonFunctionDefinition: Decodable {
+public struct JsonFunctionDefinition: Codable {
 
     let parameters: [JsonFunctionParameter]
-    let logic: AnyDecodable
+    let logic: AnyCodable
 
 }
 
-public struct JsonFunctionParameter: Decodable {
+public struct JsonFunctionParameter: Codable {
 
     let name: String
-    let `default`: AnyDecodable?
+    let `default`: AnyCodable?
 
 }
