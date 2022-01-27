@@ -1,8 +1,12 @@
 //
-//  CustomOperatorTests.swift
 //  jsonfunctionsTests
 //
-//  Created by Christos Koninis on 3/15/21.
+//      CustomOperatorTests.swift
+//      jsonlogicTests
+//
+//      Created by Christos Koninis on 3/15/21.
+//
+// Modifications Copyright (c) 2022 SAP SE or an SAP affiliate company
 //
 
 import XCTest

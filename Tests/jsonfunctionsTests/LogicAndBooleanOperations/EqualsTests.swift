@@ -1,8 +1,12 @@
 //
-//  EqualsTests.swift
 //  jsonfunctionsTests
 //
-//  Created by Christos Koninis on 17/02/2019.
+//      EqualsTests.swift
+//      jsonlogicTests
+//
+//      Created by Christos Koninis on 17/02/2019.
+//
+// Modifications Copyright (c) 2022 SAP SE or an SAP affiliate company
 //
 
 import Foundation

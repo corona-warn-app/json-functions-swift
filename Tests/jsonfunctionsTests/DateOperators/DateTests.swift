@@ -1,8 +1,14 @@
 //
-//  File.swift
-//  
+//  jsonfunctionsTests
 //
-//  Created by Steffen on 24.06.21.
+//
+//      File.swift
+//
+//
+//      Created by Steffen on 24.06.21.
+//
+//
+// Modifications Copyright (c) 2022 SAP SE or an SAP affiliate company
 //
 
 import Foundation

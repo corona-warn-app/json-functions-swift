@@ -1,8 +1,12 @@
 //
-//  AndTests.swift
 //  jsonfunctionsTests
 //
-//  Created by Christos Koninis on 12/02/2019.
+//      AndTests.swift
+//      jsonlogicTests
+//
+//      Created by Christos Koninis on 12/02/2019.
+//
+// Modifications Copyright (c) 2022 SAP SE or an SAP affiliate company
 //
 
 import XCTest
