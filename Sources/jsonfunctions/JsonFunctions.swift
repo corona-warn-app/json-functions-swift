@@ -103,6 +103,20 @@ public final class JsonFunctions {
     }
 
     /**
+     Registers a function so that it can be called using `evaluateFunction` or using the `call` expression.
+
+    - parameters:
+         - jsonFunctionDescriptor: jsonFunctionDescriptor
+    */
+
+    public func registerFunction(jsonFunctionDescriptor: JsonFunctionDescriptor) {
+        registerFunction(
+            name: jsonFunctionDescriptor.name,
+            definition: jsonFunctionDescriptor.definition
+        )
+    }
+
+    /**
      Evaluates a function with the given parameters.
 
     - parameters:
