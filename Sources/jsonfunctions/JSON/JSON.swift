@@ -9,6 +9,7 @@
 //
 
 import Foundation
+import AnyCodable
 
 public enum JSON: Equatable {
     case Null
@@ -70,9 +71,12 @@ public enum JSON: Equatable {
         self = .Dictionary(dictionary)
     }
 
-    //swiftlint:disable syntactic_sugar
     public init(_ json: Any) {
-        switch json {
+        self.init(AnyCodable(json))
+    }
+
+    public init(_ json: AnyCodable) {
+        switch json.value {
         case let js as JSON:
             self = js
         case let array as Swift.Array<Any>:
@@ -109,10 +113,20 @@ public enum JSON: Equatable {
         case let double as Swift.Double:
             self = .Double(double)
         default:
-            self = .Error(.NSError(NSError(domain: "Can't convert value \(json) to JSON", code: 1)))
+            do {
+                let data = try JSONEncoder().encode(json)
+
+                guard let dictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
+                    self = .Error(.NSError(NSError(domain: "Can't serialize \(json) to JSON object", code: 1)))
+                    return
+                }
+
+                self = .Dictionary(dictionary.mapValues({ JSON($0) }))
+            } catch {
+                self = .Error(.NSError(NSError(domain: "Can't encode \(json) to JSON, error: \(error)", code: 1)))
+            }
         }
     }
-    //swiftlint:enable syntactic_sugar
 
     public init(_ data: Data) {
         do {

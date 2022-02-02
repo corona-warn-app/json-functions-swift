@@ -140,7 +140,7 @@ public final class JsonFunctions {
      - `JsonFunctionsError.canNotParseJSONData(String)` :
      If `jsonDataOrNil` is not valid json
     */
-    public func evaluateFunction<T>(name: String, parameters: [String: AnyCodable]) throws -> T {
+    public func evaluateFunction<T>(name: String, parameters: [String: AnyDecodable]) throws -> T {
         let result = try evaluateFunction(name: name, parameters: parameters)
 
         return try convertToSwiftType(result)
@@ -170,7 +170,7 @@ public final class JsonFunctions {
      - `JsonFunctionsError.canNotParseJSONData(String)` :
      If `jsonDataOrNil` is not valid json
     */
-    public func evaluateFunction<T: Decodable>(name: String, parameters: [String: AnyCodable]) throws -> T {
+    public func evaluateFunction<T: Decodable>(name: String, parameters: [String: AnyDecodable]) throws -> T {
         let result = try evaluateFunction(name: name, parameters: parameters)
 
         return try result.decoded(to: T.self)
@@ -204,35 +204,12 @@ public final class JsonFunctions {
         return try parsedRule.eval(with: data)
     }
 
-    internal func evaluateFunction(name: String, parameters: [String: AnyCodable]) throws -> JSON {
+    internal func evaluateFunction(name: String, parameters: [String: AnyDecodable]) throws -> JSON {
         guard let definition = registeredFunctions[name] else {
             throw JsonFunctionsError.noSuchFunction
         }
 
-        let data = try definition.parameters.reduce(into: [String: JSON]()) {
-            let value = parameters[$1.name] ?? $1.`default`
-            var json = JSON(value?.value as Any)
-
-            if case .Error = json {
-                do {
-                    // Attempt to convert Encodable parameters to dictionaries
-                    guard let value = value else {
-                        throw ParseError.InvalidParameters("Can't encode \(String(describing: value)) to JSON data")
-                    }
-
-                    let data = try JSONEncoder().encode(value)
-
-                    guard let dictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
-                        throw ParseError.InvalidParameters("Can't serialize \(String(describing: value)) to JSON object")
-                    }
-
-                    json = JSON(dictionary)
-                } catch {
-                    throw ParseError.InvalidParameters("Can't serialize \(String(describing: value)) to JSON, error: \(error)")
-                }
-
-            }
-
+        let data = definition.parameters.reduce(into: [String: JSON]()) {
             $0[$1.name] = JSON(parameters[$1.name]?.value ?? $1.`default`?.value as Any)
         }
 
