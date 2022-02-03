@@ -22,10 +22,10 @@
 
 # Corona-Warn-App: jsonlogic-swift
 
-A native Swift JsonLogic implementation. This parser accepts [JsonLogic](http://jsonlogic.com) 
-rules and executes them. 
+A native Swift JsonLogic implementation. This parser accepts [JsonLogic](http://jsonlogic.com)
+rules and executes them.
 
-JsonLogic is a way to write rules that involve computations in JSON 
+JsonLogic is a way to write rules that involve computations in JSON
 format, these can be applied on JSON data with consistent results. So you can share between server and clients rules in a common format. Original JS JsonLogic implementation is developed by Jeremy Wadhams.
 
 ## Instalation
@@ -62,15 +62,15 @@ let result: String? = try? applyRule(rule, to: data)
 print("result = \(String(describing: result))")
 ```
 
-The ```applyRule``` will parse the rule then apply it to the ```data``` and try to convert the 
+The ```applyRule``` will parse the rule then apply it to the ```data``` and try to convert the
 result to
- the 
-inferred return 
-type, 
+ the
+inferred return
+type,
 if it fails an error will be thrown.
 
 If you need to apply the same rule to multiple data then it will be better to parse the rule once.
-You can do this by initializing a ```JsonRule``` object with the rule and then calling 
+You can do this by initializing a ```JsonRule``` object with the rule and then calling
 ```applyRule```.
 
 ```swift
@@ -124,8 +124,8 @@ In an infix language this could be written as:
 
 #### Data-Driven
 
-Obviously these rules aren't very interesting if they can only take static literal data. 
-Typically `jsonLogic` will be called with a rule object and a data object. You can use the `var` 
+Obviously these rules aren't very interesting if they can only take static literal data.
+Typically `jsonLogic` will be called with a rule object and a data object. You can use the `var`
 operator to get attributes of the data object:
 
 ```Swift
@@ -198,11 +198,11 @@ let customRules =
             return JSON(0)
         }
     }]
-    
+
 let rule = """
     { "numberOfElementsInArray" : [1, 2, 3] }
 """
-    
+
 // The value is 3
 let value: Int = try JsonLogic(rule, customOperators: customRules).applyRule()
 ```
@@ -243,10 +243,21 @@ For more information about how to contribute, the project structure, as well as 
 A list of all public repositories from the Corona-Warn-App can be found [here](https://github.com/corona-warn-app/cwa-documentation/blob/master/README.md#repositories).
 
 
-## Author
+## Authors
 
-Christos Koninis, c.koninis@afse.eu
+This repository is forked from https://github.com/eu-digital-green-certificates/json-logic-swift which is again forked from the original repository https://github.com/advantagefse/json-logic-swift:
+- Original: Christos Koninis, c.koninis@afse.eu, Copyright (c) 2019 Advantage FSE
+- Enhancements and Modifications in this repository: Copyright (c) 2022 SAP SE or an SAP affiliate company.
+
 
 ## License
 
-JsonLogic for Swift is available under the MIT license. See the LICENSE file for more info.
+Licensed under the **MIT License** (the "License"); you may not use this file except in compliance with the License.
+
+You may obtain a copy of the License at https://opensource.org/licenses/MIT.
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the [LICENSE](./LICENSE) for the specific language governing permissions and limitations under the License.
+
+Please see the [detailed licensing information](https://api.reuse.software/info/github.com/corona-warn-app/json-functions-swift) via the [REUSE Tool](https://reuse.software/) for more details.
+
+The "Corona-Warn-App" logo is a registered trademark of The Press and Information Office of the Federal Government. For more information please see [bundesregierung.de](https://www.bundesregierung.de/breg-en/federal-government/federal-press-office).
