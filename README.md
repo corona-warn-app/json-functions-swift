@@ -22,11 +22,9 @@
 
 # Corona-Warn-App: json-functions-swift
 
-A native Swift JsonLogic implementation. This parser accepts [JsonLogic](http://jsonlogic.com)
-rules and executes them.
+A native Swift implementation of JsonFunctions.
 
-JsonLogic is a way to write rules that involve computations in JSON
-format, these can be applied on JSON data with consistent results. So you can share between server and clients rules in a common format. Original JS JsonLogic implementation is developed by Jeremy Wadhams.
+JsonFunctions (JFN) is a generic logic engine that is capable of processing functions that are described in a JSON format. It is a compatible extension of [JsonLogic](http://jsonlogic.com).
 
 ## Instalation
 
