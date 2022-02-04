@@ -361,8 +361,7 @@ class JSONTests: XCTestCase {
             return nil
         }()
 
-        let parseError = NSError(domain: "Can't convert value \(AClass()) to JSON", code: 1)
+        let parseError = NSError(domain: "Can't encode \(AClass()) to JSON, error: \(Swift.EncodingError.invalidValue(AClass(), Swift.EncodingError.Context(codingPath: [], debugDescription: "AnyEncodable value cannot be encoded", underlyingError: nil)))", code: 1)
         XCTAssertEqual(error, .NSError(parseError))
     }
 }
-
