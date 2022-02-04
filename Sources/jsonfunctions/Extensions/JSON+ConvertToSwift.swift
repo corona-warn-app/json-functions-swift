@@ -49,10 +49,14 @@ extension JSON {
     }
 
     func decoded<T: Decodable>(to: T.Type) throws -> T {
-        let convertedToSwiftStandardType = try convertToSwiftTypes()
+        let convertedToSwiftStandardType = try convertToSwiftTypes(dateToString: true)
 
         let jsonData = try JSONSerialization.data(withJSONObject: convertedToSwiftStandardType as Any, options: [.fragmentsAllowed])
-        return try JSONDecoder().decode(T.self, from: jsonData)
+
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+
+        return try decoder.decode(T.self, from: jsonData)
     }
 
     func jsonString() throws -> String? {
