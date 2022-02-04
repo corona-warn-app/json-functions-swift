@@ -20,7 +20,7 @@
 </p>
 <hr />
 
-# Corona-Warn-App: jsonlogic-swift
+# Corona-Warn-App: json-functions-swift
 
 A native Swift JsonLogic implementation. This parser accepts [JsonLogic](http://jsonlogic.com)
 rules and executes them.
