@@ -1,6 +1,38 @@
 {
-  "$comment": "Generated at Sat Jan 15 2022 18:28:29 GMT+0100 (Central European Standard Time)",
+  "$comment": "Generated at Fri Feb 04 2022 17:18:13 GMT+0000 (Coordinated Universal Time)",
+  "sourceHash": "eec45dc5f5c98a217596e03249bbf6984b89e452c953f1622736f8f69f31a516",
+  "sourceTreeish": "6ca377f",
   "testCases": [
+    {
+      "title": "after - returns false if one is not a date (1)",
+      "logic": {
+        "after": [
+          {
+            "var": "left"
+          },
+          null
+        ]
+      },
+      "data": {
+        "left": "2021-11-12T10:59:00Z"
+      },
+      "exp": false
+    },
+    {
+      "title": "after - returns false if one is not a date (2)",
+      "logic": {
+        "after": [
+          null,
+          {
+            "var": "left"
+          }
+        ]
+      },
+      "data": {
+        "left": "2021-11-12T10:59:00Z"
+      },
+      "exp": false
+    },
     {
       "title": "all - allows to specify the variable name for the current value and to access the outer context",
       "logic": {
@@ -697,6 +729,36 @@
         "hello",
         "hola"
       ]
+    },
+    {
+      "title": "before - returns false if one is not a date (1)",
+      "logic": {
+        "before": [
+          {
+            "var": "left"
+          },
+          null
+        ]
+      },
+      "data": {
+        "left": "2021-11-12T10:59:00Z"
+      },
+      "exp": false
+    },
+    {
+      "title": "before - returns false if one is not a date (2)",
+      "logic": {
+        "before": [
+          null,
+          {
+            "var": "left"
+          }
+        ]
+      },
+      "data": {
+        "left": "2021-11-12T10:59:00Z"
+      },
+      "exp": false
     },
     {
       "title": "call - allows to call other functions with array",
@@ -3284,6 +3346,110 @@
       "exp": "hello"
     },
     {
+      "title": "declare - when set to a variable from an array and altered afterwards, leaves the original array unchanged (copy-by-value/for iOS compatibility)",
+      "androidOptional": true,
+      "logic": {
+        "script": [
+          {
+            "declare": [
+              "new",
+              {
+                "var": "original"
+              }
+            ]
+          },
+          {
+            "assign": [
+              "new.0",
+              "hi"
+            ]
+          },
+          {
+            "return": [
+              {
+                "init": [
+                  "object",
+                  "new",
+                  {
+                    "var": "new"
+                  },
+                  "original",
+                  {
+                    "var": "original"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "data": {
+        "original": [
+          "hello"
+        ]
+      },
+      "exp": {
+        "new": [
+          "hi"
+        ],
+        "original": [
+          "hello"
+        ]
+      }
+    },
+    {
+      "title": "declare - when set to a variable from an object and altered afterwards, leaves the original object unchanged (copy-by-value/for iOS compatibility)",
+      "androidOptional": true,
+      "logic": {
+        "script": [
+          {
+            "declare": [
+              "new",
+              {
+                "var": "original"
+              }
+            ]
+          },
+          {
+            "assign": [
+              "new.greeting",
+              "hi"
+            ]
+          },
+          {
+            "return": [
+              {
+                "init": [
+                  "object",
+                  "new",
+                  {
+                    "var": "new"
+                  },
+                  "original",
+                  {
+                    "var": "original"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "data": {
+        "original": {
+          "greeting": "hello"
+        }
+      },
+      "exp": {
+        "new": {
+          "greeting": "hi"
+        },
+        "original": {
+          "greeting": "hello"
+        }
+      }
+    },
+    {
       "title": "detect missing values - detect missing integer value - #1 with {\"payload\":{}}",
       "logic": {
         "if": [
@@ -4015,6 +4181,35 @@
         "right": "2000-11-12T00:00:00Z"
       },
       "exp": 21
+    },
+    {
+      "title": "double-bang (!!) - can be used in an or-statement",
+      "logic": {
+        "or": [
+          {
+            "!!": [
+              {
+                "var": "emptyArray"
+              }
+            ]
+          },
+          {
+            "!!": [
+              {
+                "var": "nonEmptyArray"
+              }
+            ]
+          }
+        ]
+      },
+      "data": {
+        "emptyArray": [],
+        "nonEmptyArray": [
+          1,
+          2
+        ]
+      },
+      "exp": true
     },
     {
       "title": "equality operation (===) - should work as expected - #1 with [\"foo\",\"foo\"]",
@@ -14027,6 +14222,66 @@
       "exp": true
     },
     {
+      "title": "not-after - returns true if one is not a date (1)",
+      "logic": {
+        "not-after": [
+          {
+            "var": "left"
+          },
+          null
+        ]
+      },
+      "data": {
+        "left": "2021-11-12T10:59:00Z"
+      },
+      "exp": true
+    },
+    {
+      "title": "not-after - returns true if one is not a date (2)",
+      "logic": {
+        "not-after": [
+          null,
+          {
+            "var": "left"
+          }
+        ]
+      },
+      "data": {
+        "left": "2021-11-12T10:59:00Z"
+      },
+      "exp": true
+    },
+    {
+      "title": "not-before - returns true if one is not a date (1)",
+      "logic": {
+        "not-before": [
+          {
+            "var": "left"
+          },
+          null
+        ]
+      },
+      "data": {
+        "left": "2021-11-12T10:59:00Z"
+      },
+      "exp": true
+    },
+    {
+      "title": "not-before - returns true if one is not a date (2)",
+      "logic": {
+        "not-before": [
+          null,
+          {
+            "var": "left"
+          }
+        ]
+      },
+      "data": {
+        "left": "2021-11-12T10:59:00Z"
+      },
+      "exp": true
+    },
+    {
       "title": "patched operations - patched reduce knows about global data - #1 with null",
       "logic": {
         "reduce": [
@@ -14455,38 +14710,6 @@
         "timestamp": "2021-12-12T00:00:00Z"
       },
       "exp": "2021-12-12T01:00:00Z"
-    },
-    {
-      "title": "plusTime - adds hours and considers daylight saving time",
-      "logic": {
-        "plusTime": [
-          {
-            "var": "timestamp"
-          },
-          2,
-          "hour"
-        ]
-      },
-      "data": {
-        "timestamp": "2022-03-27T01:00:00+01:00"
-      },
-      "exp": "2022-03-27T04:00:00+02:00"
-    },
-    {
-      "title": "plusTime - adds hours and considers standard time",
-      "logic": {
-        "plusTime": [
-          {
-            "var": "timestamp"
-          },
-          2,
-          "hour"
-        ]
-      },
-      "data": {
-        "timestamp": "2022-10-30T02:00:00+02:00"
-      },
-      "exp": "2022-10-30T03:00:00+01:00"
     },
     {
       "title": "plusTime - adds minutes",
@@ -16355,6 +16578,56 @@
         "greeting": "hello"
       },
       "exp": "hello"
+    },
+    {
+      "title": "script - creates a new data context that prevents using it properly in an if statement (copy-by-value/for iOS compatibility)",
+      "androidOptional": true,
+      "logic": {
+        "script": [
+          {
+            "declare": [
+              "target",
+              {
+                "init": [
+                  "object",
+                  "key",
+                  "val"
+                ]
+              }
+            ]
+          },
+          {
+            "if": [
+              {
+                "var": "someBoolean"
+              },
+              {
+                "script": [
+                  {
+                    "assign": [
+                      "target.key",
+                      "hello"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "return": [
+              {
+                "var": "target"
+              }
+            ]
+          }
+        ]
+      },
+      "data": {
+        "someBoolean": "true"
+      },
+      "exp": {
+        "key": "val"
+      }
     },
     {
       "title": "script - is a supported operation",

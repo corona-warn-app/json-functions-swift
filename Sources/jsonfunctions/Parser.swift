@@ -113,14 +113,22 @@ class Parser {
             return Divide(arg: try self.parse(json: value))
         case "%":
             return Modulo(arg: try self.parse(json: value))
-        case ">", "after":
+        case ">":
             return Comparison(arg: try self.parse(json: value), operation: >)
-        case "<", "before":
+        case "<":
             return Comparison(arg: try self.parse(json: value), operation: <)
-        case ">=", "not-before":
+        case ">=":
             return Comparison(arg: try self.parse(json: value), operation: >=)
-        case "<=", "not-after":
+        case "<=":
             return Comparison(arg: try self.parse(json: value), operation: <=)
+        case "after":
+            return DateComparison(arg: try self.parse(json: value), operation: >, defaultValue: false)
+        case "before":
+            return DateComparison(arg: try self.parse(json: value), operation: <, defaultValue: false)
+        case "not-before":
+            return DateComparison(arg: try self.parse(json: value), operation: >=, defaultValue: true)
+        case "not-after":
+            return DateComparison(arg: try self.parse(json: value), operation: <=, defaultValue: true)
         case "if", "?:":
             guard let array = try self.parse(json: value) as? ArrayOfExpressions else {
                 throw ParseError.GenericError("\(key) statement be followed by an array")
