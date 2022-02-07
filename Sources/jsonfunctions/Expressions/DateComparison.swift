@@ -30,7 +30,7 @@ struct DateComparison: Expression {
             return JSON(defaultValue)
         }
 
-        if array.count == 2, case .Date(_) = array[0], case .Date(_) = array[1] {
+        if array.count == 2, case .Date = array[0], case .Date = array[1] {
             return .Bool(operation(array[0], array[1]))
         } else if array.count == 3, case .Date(_) = array[0], case .Date(_) = array[1], case .Date(_) = array[2] {
             return .Bool(operation(array[0], array[1]) && operation(array[1], array[2]))
