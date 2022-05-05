@@ -3,11 +3,11 @@
     "pins": [
       {
         "package": "AnyCodable",
-        "repositoryURL": "https://github.com/Flight-School/AnyCodable",
+        "repositoryURL": "https://github.com/clubspark-swift/AnyCodable",
         "state": {
           "branch": null,
-          "revision": "b1a7a8a6186f2fcb28f7bda67cfc545de48b3c80",
-          "version": "0.6.2"
+          "revision": "4133a623c4dc1d1ba9a107cc9bbee954ada16c6a",
+          "version": null
         }
       }
     ]
