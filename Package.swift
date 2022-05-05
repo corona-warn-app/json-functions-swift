@@ -15,8 +15,8 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/clubspark-swift/AnyCodable",
-            .revision("4133a623c4dc1d1ba9a107cc9bbee954ada16c6a")
+            url: "https://github.com/Flight-School/AnyCodable",
+            from: "0.6.0"
         ),
     ],
     targets: [
