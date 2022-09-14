@@ -10,14 +10,20 @@ import XCTest
 final class JsonFunctionsTests: XCTestCase {
 
     func testJsonFunctions() {
-        XCTAssertEqual(testCases.count, 779)
+        XCTAssertEqual(commonTestCases.testCases.count, 779)
 
         var passed = 0
         var failed = 0
         var throwsUnexpectedly = 0
 
-        for (index, testCase) in testCases.enumerated() {
+        for (index, testCase) in commonTestCases.testCases.enumerated() {
             let jsonFunctions = JsonFunctions()
+
+            if let commonFunctions = commonTestCases.commonFunctions {
+                commonFunctions.forEach {
+                    jsonFunctions.registerFunction(name: $0.name, definition: $0.definition)
+                }
+            }
 
             if let functions = testCase.functions {
                 functions.forEach {
@@ -66,9 +72,9 @@ final class JsonFunctionsTests: XCTestCase {
             }
         }
 
-        print("*** passed: \(passed)/\(testCases.count)")
-        print("*** failed: \(failed)/\(testCases.count)")
-        print("*** throwsUnexpectedly: \(throwsUnexpectedly)/\(testCases.count)")
+        print("*** passed: \(passed)/\(commonTestCases.testCases.count)")
+        print("*** failed: \(failed)/\(commonTestCases.testCases.count)")
+        print("*** throwsUnexpectedly: \(throwsUnexpectedly)/\(commonTestCases.testCases.count)")
     }
 
     func testDecodableReturnValue() throws {
@@ -133,14 +139,14 @@ final class JsonFunctionsTests: XCTestCase {
 
     // MARK: - Private
 
-    private lazy var testCases: [JsonFunctionsTestCase] = {
+    private lazy var commonTestCases: JsonFunctionsTestCases = {
         guard let urlJsonFile = Bundle.module.url(forResource: "jfn-common-test-cases", withExtension: "json"),
               let data = try? Data(contentsOf: urlJsonFile) else {
             fatalError("Failed init json file for tests - stop here")
         }
 
         do {
-            return try JSONDecoder().decode(JsonFunctionsTestCases.self, from: data).testCases
+            return try JSONDecoder().decode(JsonFunctionsTestCases.self, from: data)
         } catch let DecodingError.keyNotFound(jsonKey, context) {
             fatalError("missing key: \(jsonKey)\nDebug Description: \(context.debugDescription)")
         } catch let DecodingError.valueNotFound(type, context) {

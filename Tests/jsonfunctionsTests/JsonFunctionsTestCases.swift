@@ -11,6 +11,7 @@ import AnyCodable
 struct JsonFunctionsTestCases: Decodable {
 
     let testCases: [JsonFunctionsTestCase]
+    let commonFunctions: [JsonFunctionDescriptor]?
 
 }
 
