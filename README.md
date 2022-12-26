@@ -245,7 +245,7 @@ A list of all public repositories from the Corona-Warn-App can be found [here](h
 
 This repository is forked from https://github.com/eu-digital-green-certificates/json-logic-swift which is again forked from the original repository https://github.com/advantagefse/json-logic-swift:
 - Original: Christos Koninis, c.koninis@afse.eu, Copyright (c) 2019 Advantage FSE
-- Enhancements and Modifications in this repository: Copyright (c) 2022 SAP SE or an SAP affiliate company.
+- Enhancements and Modifications in this repository: Copyright (c) 2022-2023 SAP SE or an SAP affiliate company.
 
 
 ## License
